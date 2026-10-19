@@ -7,7 +7,7 @@
 - Default model:
     grr    : data/pyrimidine_grr_path.csv  (pathway,reaction,gene; pathway = 'pyrimidine')
     matrix : data/pyrimidine_matrix.csv    (43 reactions)
-    input  : input/IgA_all.csv
+    input  : input/expression.csv
 - Reactions in the matrix must all appear in the grr (checked at load time).
 """
 
@@ -477,7 +477,7 @@ def parse_arguments(parser):
                         help='The data directory for single cell input data.')
     parser.add_argument('--res_dir', type=str, default='output', metavar='<data_directory>',
                         help='The data directory for result [output]. The output of scFEA includes two matrices, predicted metabolic flux and metabolites stress at single cell resolution.')
-    parser.add_argument('--test_file', type=str, default='IgA_all.csv', 
+    parser.add_argument('--test_file', type=str, default='expression.csv', 
                         help='The test SC file [input]. The input of scFEA is a single cell profile matrix, where row is gene and column is cell. Example datasets are provided in /data/ folder. The input can be raw counts or normalised counts. The logarithm would be performed if value larger than 30.')
     parser.add_argument('--stoichiometry_matrix', type=str, default='pyrimidine_matrix.csv', 
                         help='The table describes relationship between compounds and reactions. Each row is an intermediate metabolite and each column is metabolic reaction. For human model, please use cmMat_171.csv which is default. All candidate stoichiometry matrices are provided in /data/ folder.')
