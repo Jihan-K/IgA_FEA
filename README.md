@@ -50,13 +50,13 @@ IgA_FEA/
 │   ├── pyrimidine_grr_path.csv  # Gene–reaction rules
 │   └── pyrimidine_matrix.csv    # Stoichiometry matrix with reaction directions
 ├── input/
-│   └── IgA_all.csv     # Gene expression count matrix
+│   └── expression.csv     # Gene expression count matrix
 └── output/             # Results
 ```
 
 ## Input files
 
-### Gene expression: `input/IgA_all.csv`
+### Gene expression: `input/expression.csv`
 
 This is a count matrix of 22,564 mouse genes (rows) × 6 samples (columns). The first column holds gene symbols. Raw or normalized counts both work. If the maximum value is above 50, the script applies `log2(x + 1)`.
 
@@ -117,7 +117,7 @@ cd IgA_FEA
 python src/IgA_FEA.py
 ```
 
-This trains for 100 epochs using `input/IgA_all.csv`, `data/pyrimidine_grr_path.csv` and `data/pyrimidine_matrix.csv`.
+This trains for 100 epochs using `input/expression.csv`, `data/pyrimidine_grr_path.csv` and `data/pyrimidine_matrix.csv`.
 
 To see all options:
 
@@ -130,7 +130,7 @@ python src/IgA_FEA.py --help
 | `--data_dir` | `data` | Folder with the GRR and stoichiometry files |
 | `--input_dir` | `input` | Folder with the expression file |
 | `--res_dir` | `output` | Output folder (created if missing) |
-| `--test_file` | `IgA_all.csv` | Expression matrix (genes × samples) |
+| `--test_file` | `expression.csv` | Expression matrix (genes × samples) |
 | `--grr_path` | `pyrimidine_grr_path.csv` | Gene–reaction rule file |
 | `--stoichiometry_matrix` | `pyrimidine_matrix.csv` | Stoichiometry matrix file |
 | `--train_epoch` | `100` | Number of training epochs |
